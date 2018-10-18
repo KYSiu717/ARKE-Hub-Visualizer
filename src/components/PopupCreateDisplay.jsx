@@ -36,7 +36,11 @@ export default class PopupCreateDisplay extends Component {
               <div className="services">AWS Service</div>
             </div>
           )}
-          <div className="submit button" onClick={closePopup}>
+          <div
+            className="submit button"
+            style={{ 'border-radius': 'none' }}
+            onClick={closePopup}
+          >
             Close / Submit
           </div>
         </div>

@@ -1,5 +1,6 @@
 #!/usr/bin/env node --harmony
 
+//Dependencies
 const fs = require('fs');
 const path = require('path');
 const program = require('commander');
@@ -8,6 +9,8 @@ const prompt = require('co-prompt');
 const useAccessObject = require('./server.js');
 const chalk = require('chalk');
 const log = console.log;
+
+///Welcome graphic
 
 log('');
 log(chalk.bold('               Welcome to'));
@@ -24,6 +27,7 @@ log("|| `?88P'`88bd88'     d88' `?88b,`?888P' ||");
 log('');
 log(chalk.bold('Please enter your AWS Security Credentials'));
 
+// user input prompts
 program
   .arguments('')
   .action(() => {
@@ -31,6 +35,7 @@ program
       let userAccessKeyId = yield prompt('AWS Access Key ID: ');
       let userSecretAccessKey = yield prompt.password('AWS Secret Key: ');
       let userRegion = yield prompt('AWS Region: ');
+      //invokes wrapper function with server.js code
       useAccessObject({
         accessKeyId: userAccessKeyId,
         secretAccessKey: userSecretAccessKey,
